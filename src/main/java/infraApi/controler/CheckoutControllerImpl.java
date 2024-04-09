@@ -18,7 +18,7 @@ public class CheckoutControllerImpl implements CheckoutControler{
     private final CheckoutService checkoutService;
 
     @Override
-    public Double receiveCheckout(@RequestBody CheckoutDto checkoutDto) {
+    public Double receiveCheckout(CheckoutDto checkoutDto) {
         log.info("Received checkout: " + checkoutDto.toString());
           return checkoutService.doCheckout(checkoutDto);
     }
