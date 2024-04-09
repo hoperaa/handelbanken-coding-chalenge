@@ -2,7 +2,7 @@ package infraApi;
 
 import api.CheckoutService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import infraApi.controler.CheckoutController;
+import infraApi.controler.CheckoutControllerImpl;
 import infraApi.dto.CheckoutDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,14 +24,14 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@ContextConfiguration(classes = {CheckoutController.class})
-@WebMvcTest(CheckoutController.class)
+@ContextConfiguration(classes = {CheckoutControllerImpl.class})
+@WebMvcTest(CheckoutControllerImpl.class)
 public class CheckoutControllerTest {
 
     @Autowired private MockMvc mockMvc;
 
     @MockBean private CheckoutService checkoutService;
-    @Autowired private CheckoutController checkoutController;
+    @Autowired private CheckoutControllerImpl checkoutController;
     @Autowired private ObjectMapper objectMapper;
     private static final String CHECKOUT_FILES_PATH = "src/main/resources/json/";
     ArgumentCaptor<CheckoutDto> checkoutCaptor = ArgumentCaptor.forClass(CheckoutDto.class);

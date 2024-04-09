@@ -1,4 +1,4 @@
-package core.repository;
+package infra.repository;
 
 import core.model.Watch;
 import org.springframework.data.jpa.repository.JpaRepository;

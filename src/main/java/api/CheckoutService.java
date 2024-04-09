@@ -1,7 +1,7 @@
 package api;
 
 import core.model.Watch;
-import core.repository.WatchRepository;
+import infra.repository.WatchRepository;
 import infraApi.dto.CheckoutDto;
 import infraApi.dto.WatchDto;
 import lombok.RequiredArgsConstructor;

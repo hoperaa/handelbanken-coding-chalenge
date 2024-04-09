@@ -13,12 +13,12 @@ import java.io.IOException;
 @RequiredArgsConstructor
 @RestController
 @Slf4j
-public class CheckoutController {
+public class CheckoutControllerImpl implements CheckoutControler{
 
     private final CheckoutService checkoutService;
 
-    @PostMapping("checkout")
-    public Double receiveCheckout(@RequestBody CheckoutDto checkoutDto) throws IOException {
+    @Override
+    public Double receiveCheckout(@RequestBody CheckoutDto checkoutDto) {
         log.info("Received checkout: " + checkoutDto.toString());
           return checkoutService.doCheckout(checkoutDto);
     }
