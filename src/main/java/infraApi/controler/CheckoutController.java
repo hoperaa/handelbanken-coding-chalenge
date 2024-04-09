@@ -19,6 +19,7 @@ public class CheckoutController {
 
     @PostMapping("checkout")
     public Double receiveCheckout(@RequestBody CheckoutDto checkoutDto) throws IOException {
+        log.info("Received checkout: " + checkoutDto.toString());
           return checkoutService.doCheckout(checkoutDto);
     }
 }
