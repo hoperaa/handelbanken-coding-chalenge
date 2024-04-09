@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class TestHelper {
 
-    public static CheckoutDto createCheckoutDto(){
+    public static CheckoutDto createCheckoutDto_1(){
          CheckoutDto checkoutDto = new CheckoutDto();
          checkoutDto.addWatchDto(WatchDto.builder().watchId("001").build());
          checkoutDto.addWatchDto(WatchDto.builder().watchId("002").build());
@@ -22,7 +22,7 @@ public class TestHelper {
          return checkoutDto;
     }
 
-    public static CheckoutDto createCheckoutDto_1(){
+    public static CheckoutDto createCheckoutDto_2(){
         CheckoutDto checkoutDto = new CheckoutDto();
         checkoutDto.addWatchDto(WatchDto.builder().watchId("001").build());
         checkoutDto.addWatchDto(WatchDto.builder().watchId("002").build());
@@ -32,6 +32,19 @@ public class TestHelper {
         checkoutDto.addWatchDto(WatchDto.builder().watchId("002").build());
         checkoutDto.addWatchDto(WatchDto.builder().watchId("003").build());
         checkoutDto.addWatchDto(WatchDto.builder().watchId("001").build());
+        return checkoutDto;
+    }
+
+    public static CheckoutDto createCheckoutDto_3(){
+        CheckoutDto checkoutDto = new CheckoutDto();
+        checkoutDto.addWatchDto(WatchDto.builder().watchId("001").build());
+        checkoutDto.addWatchDto(WatchDto.builder().watchId("002").build());
+        checkoutDto.addWatchDto(WatchDto.builder().watchId("003").build());
+        checkoutDto.addWatchDto(WatchDto.builder().watchId("001").build());
+        checkoutDto.addWatchDto(WatchDto.builder().watchId("004").build());
+        checkoutDto.addWatchDto(WatchDto.builder().watchId("002").build());
+        checkoutDto.addWatchDto(WatchDto.builder().watchId("001").build());
+        checkoutDto.addWatchDto(WatchDto.builder().watchId("005").build());
         return checkoutDto;
     }
 
