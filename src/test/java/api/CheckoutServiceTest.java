@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 
@@ -27,9 +28,18 @@ public class CheckoutServiceTest {
     private CheckoutService checkoutService;
 
     @Test
-    void checkoutIsReceivedAndProcessed() throws IOException {
+    void checkoutIsReceivedAndProcessedCase1() throws IOException {
         when(watchRepository.findAllByWatchIdIs(any())).thenReturn(TestHelper.watches());
         Double checkoutSum = checkoutService.doCheckout(TestHelper.createCheckoutDto());
         verify(watchRepository,times(1)).findAllByWatchIdIs(anySet());
+        assertEquals(500.00, checkoutSum);
+    }
+
+    @Test
+    void checkoutIsReceivedAndProcessedCase2() throws IOException {
+        when(watchRepository.findAllByWatchIdIs(any())).thenReturn(TestHelper.watches());
+        Double checkoutSum = checkoutService.doCheckout(TestHelper.createCheckoutDto_1());
+        verify(watchRepository,times(1)).findAllByWatchIdIs(anySet());
+        assertEquals(450.00, checkoutSum);
     }
 }
