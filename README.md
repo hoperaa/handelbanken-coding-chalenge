@@ -24,3 +24,4 @@ For purposes of expanding the rest endpoint create:
 ## Improvements for developers
 
 - Make application can be run locally with docker
+- DB credentials to a secrets file 
