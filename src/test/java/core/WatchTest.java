@@ -1,6 +1,6 @@
 package core;
 
-import core.model.Watch;
+import com.handelbanken.model.Watch;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

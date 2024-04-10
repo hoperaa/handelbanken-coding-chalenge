@@ -1,13 +1,14 @@
-package api;
+package com.handelbanken.api;
 
-import core.model.Watch;
-import infra.repository.WatchRepository;
-import infraApi.dto.CheckoutDto;
-import infraApi.dto.WatchDto;
+import com.handelbanken.model.Watch;
+import com.handelbanken.repository.WatchRepository;
+import com.handelbanken.infraApi.dto.CheckoutDto;
+import com.handelbanken.infraApi.dto.WatchDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -22,7 +23,7 @@ public class CheckoutService {
 
    public Double doCheckout(CheckoutDto checkoutDto){
       Map<String, Integer> watchesGrouped = checkoutDto.getWatches().stream().collect(Collectors.groupingBy(WatchDto::getWatchId,Collectors.summingInt(e -> 1)));
-      Set<Watch> watches = checkoutRepository.findAllByWatchIdIs(watchesGrouped.keySet());
+      Set<Watch> watches = checkoutRepository.findByWatchIdIn(watchesGrouped.keySet());
        log.info("Watches for checkout:" + watches.toString());
       return watches.stream().mapToDouble(watch -> {
                  if (watch.getDiscountForPieces() != 0) {

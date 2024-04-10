@@ -1,8 +1,8 @@
 package api;
 
-import core.model.Watch;
-import infraApi.dto.CheckoutDto;
-import infraApi.dto.WatchDto;
+import com.handelbanken.model.Watch;
+import com.handelbanken.infraApi.dto.CheckoutDto;
+import com.handelbanken.infraApi.dto.WatchDto;
 
 import java.util.HashSet;
 import java.util.Set;

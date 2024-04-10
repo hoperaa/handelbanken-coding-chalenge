@@ -1,6 +1,7 @@
 package api;
 
-import infra.repository.WatchRepository;
+import com.handelbanken.api.CheckoutService;
+import com.handelbanken.repository.WatchRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,25 +30,25 @@ public class CheckoutServiceTest {
 
     @Test
     void checkoutIsReceivedAndProcessedCase1() throws IOException {
-        when(watchRepository.findAllByWatchIdIs(any())).thenReturn(TestHelper.watches());
+        when(watchRepository.findByWatchIdIn(any())).thenReturn(TestHelper.watches());
         Double checkoutSum = checkoutService.doCheckout(TestHelper.createCheckoutDto_1());
-        verify(watchRepository,times(1)).findAllByWatchIdIs(anySet());
+        verify(watchRepository,times(1)).findByWatchIdIn(anySet());
         assertEquals(500.00, checkoutSum);
     }
 
     @Test
     void checkoutIsReceivedAndProcessedCase2() throws IOException {
-        when(watchRepository.findAllByWatchIdIs(any())).thenReturn(TestHelper.watches());
+        when(watchRepository.findByWatchIdIn(any())).thenReturn(TestHelper.watches());
         Double checkoutSum = checkoutService.doCheckout(TestHelper.createCheckoutDto_2());
-        verify(watchRepository,times(1)).findAllByWatchIdIs(anySet());
+        verify(watchRepository,times(1)).findByWatchIdIn(anySet());
         assertEquals(450.00, checkoutSum);
     }
 
     @Test
     void checkoutWhenOneWatchIsNotIntoDb() throws IOException {
-        when(watchRepository.findAllByWatchIdIs(any())).thenReturn(TestHelper.watches());
+        when(watchRepository.findByWatchIdIn(any())).thenReturn(TestHelper.watches());
         Double checkoutSum = checkoutService.doCheckout(TestHelper.createCheckoutDto_3());
-        verify(watchRepository,times(1)).findAllByWatchIdIs(anySet());
+        verify(watchRepository,times(1)).findByWatchIdIn(anySet());
         assertEquals(400.00, checkoutSum);
     }
 }

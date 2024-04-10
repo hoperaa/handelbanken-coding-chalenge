@@ -1,4 +1,4 @@
-package infraApi.dto;
+package com.handelbanken.infraApi.dto;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.*;

@@ -1,4 +1,4 @@
-package core.model;
+package com.handelbanken.model;
 
 import lombok.*;
 
