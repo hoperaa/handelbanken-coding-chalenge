@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: HandelbankenCodeChalenge
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    show_sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
+logging:
+  level:
+    org:
+    hibernate:
+      sql: debug
+      type:
+      descriptor:
+        sql: trace
+
+
+
+
